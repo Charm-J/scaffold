@@ -1,0 +1,75 @@
+spring:
+  servlet:
+    multipart:
+      # 单个文件最大长度
+      max-file-size: 15MB
+      # 单次http请求上传的最大长度
+      max-request-size: 20MB
+  application:
+    name: scaffold
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://193.112.14.58:3306/spider_content?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: yetingfm@2018
+    # 连接池配置
+    initialSize: 10
+    minIdle: 10
+    maxActive: 100
+    # 连接等待超时时间
+    maxWait: 60000
+    # 扫描间隔时间(检测可以关闭的空闲连接)
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置连接在池中的最小生存时间
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+  redis:
+    host: 193.112.14.58
+    port: 7481
+    database: 2
+    password: 1234567890
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /scaffold
+
+logging:
+  file: logs/scaffold.log
+  level:
+    com.yetingfm.community.dao: debug
+
+global:
+  uploadPath: E:/tmp/scaffold
+  swaggerShow: true
+  messageHttpUrl: https://micro.yetingfm.com/community-api/message/send
+cos:
+  appId: AKIDvmbKwS4NmCZnxyFIdjaBYgZDdrrcliCY
+  appKey: GI7g06ye5IG0iGnCWluqVv51mIZcOu97
+  root: /test/
+  region: ap-guangzhou
+  bucketName: yeting-1256217146
+  cosUrl: https://yeting-1256217146.cos.ap-guangzhou.myqcloud.com
+  cdnUrl: https://yeting-1256217146.file.myqcloud.com
