@@ -20,7 +20,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://193.112.14.58:3306/spider_content?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true
     username: root
-    password: yetingfm@2018
+    password: 
     # 连接池配置
     initialSize: 10
     minIdle: 10
@@ -68,11 +68,4 @@ global:
   uploadPath: E:/tmp/scaffold
   swaggerShow: true
   messageHttpUrl: https://micro.yetingfm.com/community-api/message/send
-cos:
-  appId: AKIDvmbKwS4NmCZnxyFIdjaBYgZDdrrcliCY
-  appKey: GI7g06ye5IG0iGnCWluqVv51mIZcOu97
-  root: /test/
-  region: ap-guangzhou
-  bucketName: yeting-1256217146
-  cosUrl: https://yeting-1256217146.cos.ap-guangzhou.myqcloud.com
-  cdnUrl: https://yeting-1256217146.file.myqcloud.com
+
