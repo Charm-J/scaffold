@@ -49,12 +49,3 @@ echo 提交变更到服务器...
 git push origin master
 echo;
 echo;
-
-echo *************************************************************
-echo maven打包中...
-mvn clean install
-echo;
-echo;
-
-
-pause

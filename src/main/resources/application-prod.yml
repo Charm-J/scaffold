@@ -1,26 +1,13 @@
+server:
+  port: 9002
+  test: false
 spring:
-  servlet:
-    multipart:
-      # 单个文件最大长度
-      max-file-size: 15MB
-      # 单次http请求上传的最大长度
-      max-request-size: 20MB
-  application:
-    name: scaffold
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-      enabled: true
-  jackson:
-      date-format: yyyy-MM-dd HH:mm:ss
-      time-zone: GMT+8
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.0.15:3306/community?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8
     username: ytdb
-    password: 
+    password: gvD2LEb3TjmRxAI8
     # 连接池配置
     initialSize: 10
     minIdle: 10
@@ -38,22 +25,22 @@ spring:
     # 打开PSCache，并且指定每个连接上PSCache的大小
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 20
-  redis:
-      host: 172.16.0.4
-      port: 7481
-      database: 0
-      password: 1234567890
-      jedis:
-        pool:
-          min-idle: 0
-          max-idle: 8
-          max-active: 8
-          max-wait: -1ms
+#  redis:
+#      host: 172.16.0.4
+#      port: 7481
+#      database: 0
+#      password: 1234567890
+#      jedis:
+#        pool:
+#          min-idle: 0
+#          max-idle: 8
+#          max-active: 8
+#          max-wait: -1ms
 
-server:
-#  port: 6100
-  tomcat:
-    uri-encoding: UTF-8
+  flyway: # 数据库协同管理工具-自动更新数据库表-每次启动都会执行一次
+    enabled: true # 建议从[开发]更新到[测试]、[正式]环境的时候使用
+    locations: classpath:/db/ # 迁移脚本的位置
+    baseline-on-migrate: true # 自动执行基准迁移
 
 logging:
   file: logs/scaffold.log
@@ -61,5 +48,12 @@ logging:
 global:
   uploadPath: /tmp/scaffold/
   swaggerShow: false
-  messageHttpUrl: https://api.yetingfm.com/community-api/message/send
 
+cos:
+  appId: AKIDvmbKwS4NmCZnxyFIdjaBYgZDdrrcliCY
+  appKey: GI7g06ye5IG0iGnCWluqVv51mIZcOu97
+  root: /prod/
+  region: ap-guangzhou
+  bucketName: yeting-1256217146
+  cosUrl: https://yeting-1256217146.cos.ap-guangzhou.myqcloud.com
+  cdnUrl: https://yeting-1256217146.file.myqcloud.com

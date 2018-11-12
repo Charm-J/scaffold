@@ -1,14 +1,19 @@
 package com.dj.scaffold.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/")
+@Controller
 public class IndexController {
 
-    public String index() {
-        return "index";
+    @GetMapping("/")
+    public ModelAndView index(ModelAndView mv) {
+        mv.addObject("word",  "thymeleaf1");
+        mv.setViewName("index");
+        return mv;
     }
 
 }
+

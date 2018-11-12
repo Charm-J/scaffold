@@ -1,21 +1,19 @@
 package com.dj.scaffold;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableTransactionManagement
 @EnableScheduling
-@EnableAutoConfiguration
+// 注意看源码
 @SpringBootApplication
-@ComponentScan
-@EnableSwagger2
-@MapperScan("com.dj.scaffold.dao")
+// 此处要特别注意-MapperScan引入的是tk.mybatis.spring.annotation.MapperScan而不是org.mybatis.spring.annotation.MapperScan
+@MapperScan(basePackages = "com.dj.scaffold.dao")
 public class ScaffoldApplication {
 
     public static void main(String[] args) {

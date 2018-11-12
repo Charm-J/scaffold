@@ -1,3 +1,54 @@
 spring:
   profiles:
     active: dev
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false # 建议关闭缓存
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-http-header-size: 65536 #bytes 64k
+  servlet:
+    context-path: /scaffold
+    max-http-header-size: 65536 #bytes 64k
+    multipart:
+          # 单个文件最大长度
+          max-file-size: 15MB
+          # 单次http请求上传的最大长度
+          max-request-size: 20MB
+
+# spring2.0以后-actuator配置如下--https://blog.csdn.net/alinyua/article/details/80009435
+management:
+  server:
+    port: 9999
+    address: 127.0.0.1 # 不允许远程管理连接
+  endpoints: # 设置端点暴露与隐藏
+    web:
+      base-path: /monitor # 访问路径-http://127.0.0.1:9999/monitor
+      exposure:
+        include: scheduledtasks, health, info # 设置需暴露的端点
+  endpoint: # 设置端点启用与禁用-默认情况下，除shutdown以外的所有端点均已启用
+    health:
+      show-details: always #显示自定义健康监控详情
+    env:
+      enabled: false # 禁用env这个端点
+
+druid:
+  account: admin
+  password: 123456
+
+mybatis:
+  mapper-locations: classpath:/com/dj/scaffold/dao/*.xml # xml文件所在路径
+  type-aliases-package: com.dj.scaffold.model # <映射类>所在的包名

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dj.scaffold.dao.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.dj.scaffold.model.entity.SysUser">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="logout_time" jdbcType="TIMESTAMP" property="logoutTime" />
+    <result column="last_ip" jdbcType="VARCHAR" property="lastIp" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="des" jdbcType="VARCHAR" property="des" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, username, password, create_time, salt, login_time, logout_time, last_ip,
+    status, des, avatar
+  </sql>
+
+
+  <select id="getMaxId" resultType="java.lang.Long">
+      select max(user_id) from t_sys_user;
+  </select>
+</mapper>
