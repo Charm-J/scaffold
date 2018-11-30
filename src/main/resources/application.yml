@@ -49,6 +49,11 @@ druid:
   account: admin
   password: 123456
 
+global:
+  uploadPath: /tmp/scaffold/
+  swaggerShow: false
+
+
 mybatis:
-  mapper-locations: classpath:/com/dj/scaffold/dao/*.xml # xml文件所在路径
-  type-aliases-package: com.dj.scaffold.model # <映射类>所在的包名
+  mapper-locations: classpath:mapper/*.xml # xml文件所在路径
+  type-aliases-package: com.dj.scaffold.dao # dao所在的包名

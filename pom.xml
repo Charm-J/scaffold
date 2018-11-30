@@ -6,7 +6,7 @@
     <groupId>com.dj</groupId>
     <artifactId>scaffold</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>scaffold</name>
     <description>Scaffold project for Spring Boot</description>
@@ -207,15 +207,6 @@
                 </dependencies>
             </plugin>
         </plugins>
-        <!-- 此处是为了解决idea不加载非resources包下的xml文件->导致的mybatis以xml方式操作DB报错的问题 -->
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
 
 

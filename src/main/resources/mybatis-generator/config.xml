@@ -38,7 +38,7 @@
         </javaModelGenerator>
 
         <!--生成 Mapper.xml-->
-        <sqlMapGenerator targetPackage="com.dj.scaffold.dao" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
