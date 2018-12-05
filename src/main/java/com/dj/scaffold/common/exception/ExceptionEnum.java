@@ -8,7 +8,9 @@ public enum ExceptionEnum {
     WRONG_REQ(10005, "请求参数错误"),
     ERR_REQ_TYPE(10006, "请求类型错误"),
 
-    NOT_A_MULTIPART_REQUEST(20001, "Current request is not a multipart request");
+    NOT_A_MULTIPART_REQUEST(20001, "Current request is not a multipart request"),
+    USER_NOT_EXIST(20002, "用户不存在"),
+    ERR_USERNAME_OR_PWD(20003, "用户名密码错误");
 
     private Integer code;
     private String msg;

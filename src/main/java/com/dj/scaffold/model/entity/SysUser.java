@@ -1,17 +1,30 @@
 package com.dj.scaffold.model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "t_sys_user")
 public class SysUser implements Serializable {
+
+    public SysUser() {
+    }
+
+    public SysUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     /**
-     * 用户id（0为创始人不能删除）
+     * 用户id
      */
     @Id
     @Column(name = "user_id")
-    private Integer userId;
+    @GeneratedValue(generator = "JDBC")//插入时候主键回显
+    private Long userId;
 
     /**
      * 用户名
@@ -70,20 +83,20 @@ public class SysUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 获取用户id（0为创始人不能删除）
+     * 获取用户id
      *
-     * @return user_id - 用户id（0为创始人不能删除）
+     * @return user_id - 用户id
      */
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
     /**
-     * 设置用户id（0为创始人不能删除）
+     * 设置用户id
      *
-     * @param userId 用户id（0为创始人不能删除）
+     * @param userId 用户id
      */
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

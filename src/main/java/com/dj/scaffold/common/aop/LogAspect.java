@@ -46,16 +46,16 @@ public class LogAspect {
             HttpServletRequest request = attributes.getRequest();
             String name = joinPoint.getSignature().getName();
             methodName.set(name);
+            Object[] args = joinPoint.getArgs();
+            String s = args.toString();
             // 记录下请求内容
             logger.info("请求信息#URL:" + request.getRequestURL() + " #TYPE:" + request.getMethod() + " #IP:" + request.getRemoteAddr());
-            logger.info("方法<" + name + ">入参：" + JSONObject.toJSONString(joinPoint.getArgs()));
         }
 
     }
 
     @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret) {
-        //String out = "出参: " + JSONObject.toJSONString(ret);
         logger.info("方法<" + methodName.get() + ">耗时:" + (System.currentTimeMillis() - startTime.get()) + "ms");
     }
 

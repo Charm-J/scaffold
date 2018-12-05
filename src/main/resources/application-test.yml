@@ -45,7 +45,7 @@ logging:
   file: logs/scaffold.log
 
 global:
-  uploadPath: E:/tmp/scaffold
+  uploadPath: /tmp/scaffold
   swaggerShow: true
 
 cos:

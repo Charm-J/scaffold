@@ -16,7 +16,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user`;
 CREATE TABLE `t_sys_user`  (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id（0为创始人不能删除）',
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '用户名',
   `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '密码',
   `create_time` timestamp(0) NULL DEFAULT '0000-00-00 00:00:00' COMMENT '用户创建时间',

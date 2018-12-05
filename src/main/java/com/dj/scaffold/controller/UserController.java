@@ -2,14 +2,16 @@ package com.dj.scaffold.controller;
 
 import com.dj.scaffold.common.Result;
 import com.dj.scaffold.common.annotation.Log;
+import com.dj.scaffold.model.vo.LoginVo;
 import com.dj.scaffold.service.UserService;
+import com.dj.scaffold.util.ParamUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/user")
@@ -32,4 +34,12 @@ public class UserController {
     public Result getMaxId() {
         return userService.getMaxId();
     }
+
+    @Log
+    @RequestMapping(value = "/login", method = {RequestMethod.PUT, RequestMethod.POST})
+    public Result login(@RequestBody @Valid LoginVo loginVo, BindingResult result) {
+        ParamUtil.valid(result);
+        return userService.login(loginVo);
+    }
+
 }
