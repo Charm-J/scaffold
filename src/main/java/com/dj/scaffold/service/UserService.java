@@ -5,7 +5,7 @@ import com.dj.scaffold.model.vo.LoginVo;
 
 public interface UserService {
 
-    Result getUserDetail(Long userId);
+    Result getUserById(Long userId);
 
     Result getMaxId();
 

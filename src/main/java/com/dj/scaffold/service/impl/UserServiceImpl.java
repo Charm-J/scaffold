@@ -17,6 +17,7 @@ import com.dj.scaffold.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,7 +31,8 @@ public class UserServiceImpl implements UserService {
     private Redis redis;
 
     @Override
-    public Result getUserDetail(Long userId) {
+    @Cacheable(value = "getUserById", sync = true)
+    public Result getUserById(Long userId) {
         if (ParamUtil.isEmpty(userId)) {
             return ResultHelper.error(ExceptionEnum.WRONG_REQ);
         }

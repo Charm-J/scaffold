@@ -22,10 +22,10 @@ public class UserController {
     private UserService userService;
 
     @Log
-    @GetMapping("/detail/{userId}")
+    @GetMapping("/{userId}")
     @ApiOperation(value = "系统用户详情")
-    public Result getUserDetail(@PathVariable("userId") Long userId) {
-        return userService.getUserDetail(userId);
+    public Result getUserById(@PathVariable("userId") Long userId) {
+        return userService.getUserById(userId);
     }
 
     @Log
