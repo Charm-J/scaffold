@@ -1,6 +1,5 @@
 package com.dj.scaffold.common.aop;
 
-import com.alibaba.fastjson.JSONObject;
 import com.dj.scaffold.common.annotation.Log;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;

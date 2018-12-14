@@ -4,6 +4,7 @@ package com.dj.scaffold.common;
 import com.dj.scaffold.common.exception.ExceptionEnum;
 
 public class ResultHelper {
+
     public static Result ok(Object object) {
         return new Result(0, Const.MSG_OK, object);
     }
