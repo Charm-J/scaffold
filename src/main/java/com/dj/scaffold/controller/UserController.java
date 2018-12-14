@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/user")
 @Api(description = "系统用户相关")
 public class UserController {
 
@@ -24,21 +23,21 @@ public class UserController {
 
     @Log
     @Auth
-    @GetMapping("/{userId}")
+    @GetMapping("/v1/users/{userId}")
     @ApiOperation(value = "系统用户详情")
     public Result getUserById(@PathVariable("userId") Long userId) {
         return userService.getUserById(userId);
     }
 
     @Log
-    @GetMapping("/maxId")
+    @GetMapping("/v1/users/maxId")
     @ApiOperation(value = "用户最大ID")
     public Result getMaxId() {
         return userService.getMaxId();
     }
 
     @Log
-    @RequestMapping(value = "/login", method = {RequestMethod.PUT, RequestMethod.POST})
+    @RequestMapping(value = "/v1/users/login", method = {RequestMethod.PUT, RequestMethod.POST})
     public Result login(@RequestBody @Valid LoginVo loginVo, BindingResult result) {
         ParamUtil.valid(result);
         return userService.login(loginVo);
