@@ -13,9 +13,8 @@ public class SysUser implements Serializable {
     public SysUser() {
     }
 
-    public SysUser(String username, String password) {
+    public SysUser(String username) {
         this.username = username;
-        this.password = password;
     }
 
     /**

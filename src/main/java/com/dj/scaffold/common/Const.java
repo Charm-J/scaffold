@@ -7,9 +7,8 @@ public class Const {
     public static final String MSG_OK = "OK";
     public static final String TOKEN = "token";
     public static final String UTF_8 = "UTF-8";
-
-    public static final String T0 = "T0";
-    public static final Integer EXPIRED = 30*60;
+    public static final Integer EXPIRED = 30 * 60;
+    public static final String CURRENT_TOKEN = "current_token";
 
     // 分页
     public static final Integer DEFAULT_PAGENUM = 1;

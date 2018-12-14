@@ -1,6 +1,7 @@
 package com.dj.scaffold.controller;
 
 import com.dj.scaffold.common.Result;
+import com.dj.scaffold.common.annotation.Auth;
 import com.dj.scaffold.common.annotation.Log;
 import com.dj.scaffold.model.vo.LoginVo;
 import com.dj.scaffold.service.UserService;
@@ -22,6 +23,7 @@ public class UserController {
     private UserService userService;
 
     @Log
+    @Auth
     @GetMapping("/{userId}")
     @ApiOperation(value = "系统用户详情")
     public Result getUserById(@PathVariable("userId") Long userId) {

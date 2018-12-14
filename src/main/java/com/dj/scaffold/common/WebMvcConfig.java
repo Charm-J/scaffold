@@ -6,14 +6,36 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 跨域设置
+ * Mvc配置类
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
+
+    /**
+     * 自己定义的拦截器类
+     */
+    @Bean
+    Interceptor myInterceptor() {
+        return new Interceptor();
+    }
+
+    /**
+     * 添加拦截器
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(myInterceptor());
+    }
+
+
+    /**
+     * 跨域设置
+     */
     @Bean
     public CorsConfiguration corsConfiguration() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();

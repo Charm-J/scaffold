@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Result login(LoginVo loginVo) {
-        SysUser sysUser = sysUserMapper.selectOne(new SysUser(loginVo.getAccount(), loginVo.getPassword()));
+        SysUser sysUser = sysUserMapper.selectOne(new SysUser(loginVo.getAccount()));
         if (null == sysUser) {
             throw new AppException(ExceptionEnum.USER_NOT_EXIST);
         }
